@@ -1,0 +1,15 @@
+@import '../../../../ultis/variables.scss';
+
+.logo {
+	width: 40px;
+	height: 40px;
+}
+
+.header {
+	font-size: 24px;
+	font-weight: 500;
+	margin: unset;
+  color: $common-black;
+	text-decoration: unset;
+	padding-left: 20px;
+}
