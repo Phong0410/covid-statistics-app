@@ -11,7 +11,6 @@ export const getData = createAsyncThunk(
 
 const initialState = {
   loading: false,
-  country: null,
   cases: {
     new: null,
     active: null,
@@ -35,7 +34,6 @@ export const statisticsSlice = createSlice({
     },
     [getData.fulfilled]: (state, action) => {
       state.loading = false;
-      state.country = action.payload.response[0].country;
       state.cases = {
         ...state.cases,
         new: action.payload.response[0].cases.new,
@@ -49,6 +47,9 @@ export const statisticsSlice = createSlice({
         new: action.payload.response[0].deaths.new,
         total: action.payload.response[0].deaths.total,
       };
+    },
+    [getData.rejected]: (state) => {
+      state.loading = false;
     },
   },
 });

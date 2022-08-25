@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, Paper, styled, Grid } from "@mui/material";
+import { Container, Stack, Paper, styled, Grid, Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import AnimatedNumber from "animated-number-react";
 import styles from "./index.module.scss";
@@ -20,6 +20,16 @@ const Statistic = () => {
   const data = useSelector((state) => state.statistics);
   return (
     <Container sx={{ padding: "24px" }}>
+      <Box
+        sx={{
+          textAlign: "center",
+          paddingBottom: "12px",
+          fontSize: "20px",
+          fontWeight: "500",
+        }}
+      >
+        Today
+      </Box>
       <Stack spacing={2}>
         <Item>
           <p className={styles.title}>Cases</p>
@@ -27,7 +37,9 @@ const Statistic = () => {
             <Grid item xs={3} sx={gridItemStyles}>
               <p>New</p>
               <AnimatedNumber
-                className={styles.number}
+                className={`${styles.number} ${
+                  data.cases.new ? styles.yellow : ""
+                }`}
                 value={data.cases.new}
                 formatValue={formatValue}
                 duration={500}
@@ -45,7 +57,9 @@ const Statistic = () => {
             <Grid item xs={3} sx={gridItemStyles}>
               <p>Critical</p>
               <AnimatedNumber
-                className={styles.number}
+                className={`${styles.number} ${
+                  data.cases.critical ? styles.red : ""
+                }`}
                 value={data.cases.critical}
                 formatValue={formatValue}
                 duration={500}
@@ -54,7 +68,9 @@ const Statistic = () => {
             <Grid item xs={3} sx={gridItemStyles}>
               <p>Recovered</p>
               <AnimatedNumber
-                className={styles.number}
+                className={`${styles.number} ${
+                  data.cases.recovered ? styles.green : ""
+                }`}
                 value={data.cases.recovered}
                 formatValue={formatValue}
                 duration={500}
@@ -77,7 +93,9 @@ const Statistic = () => {
             <Grid item xs={3} sx={gridItemStyles}>
               <p>New</p>
               <AnimatedNumber
-                className={styles.number}
+                className={`${styles.number} ${
+                  data.deaths.new ? styles.red : ""
+                }`}
                 value={data.deaths.new}
                 formatValue={formatValue}
                 duration={500}
