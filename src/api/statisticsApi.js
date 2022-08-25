@@ -1,10 +1,10 @@
-import axiosClient from "./axiosClient"
+import axiosClient from "./axiosClient";
 
 const statisticsApi = {
-	getAll: (params) => {
-		const url = "/statistics"
-		return axiosClient.get(url, params)
-	}
-}
+  getData: (params) => {
+    const url = "/statistics";
+    return axiosClient.get(url, { params });
+  },
+};
 
-export default statisticsApi
+export default statisticsApi;

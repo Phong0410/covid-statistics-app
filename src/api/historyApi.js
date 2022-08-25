@@ -1,10 +1,10 @@
-import axiosClient from "./axiosClient"
+import axiosClient from "./axiosClient";
 
 const historyApi = {
-	getAll: (params) => {
-		const url = "/history"
-		return axiosClient.get(url, params)
-	}
-}
+  getData: (params) => {
+    const url = "/history";
+    return axiosClient.get(url, { params });
+  },
+};
 
-export default historyApi
+export default historyApi;

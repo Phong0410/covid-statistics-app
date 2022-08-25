@@ -1,8 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit"
-import countryReducer from "../components/Header/components/SearchBar/countrySlice"
+import { configureStore } from "@reduxjs/toolkit";
+import countryReducer from "./countrySlice";
+import statisticsReducer from "./statisticsSlice";
 
 export const store = configureStore({
-	reducer: {
-		country: countryReducer
-	}
-})
+  reducer: {
+    country: countryReducer,
+    statistics: statisticsReducer,
+  },
+});
