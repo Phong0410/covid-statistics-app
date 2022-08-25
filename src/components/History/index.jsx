@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useMemo } from "react";
 import moment from "moment";
 import { Container, Grid } from "@mui/material";
 
@@ -45,43 +45,62 @@ const gridItemStyles = {
 };
 
 const History = () => {
-  const [date, setDate] = useState(new Date());
+  const initialDate = useMemo(() => {
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    return date;
+  }, []);
+
+  const [date, setDate] = useState(initialDate);
   const history = useSelector((state) => state.history);
 
-  const newCasesLabels = history.data.map((item) => item.day);
+  const newCasesLabels = useMemo(() => {
+    return history.data.map((item) => item.day);
+  }, [history.data]);
 
   const newCasesData = {
     labels: newCasesLabels,
     datasets: [
       {
         label: "New cases",
-        data: history.data.map((item) => item.newCases),
+        data: useMemo(
+          () => history.data.map((item) => item.newCases),
+          [history.data]
+        ),
         borderColor: "rgb(252, 195, 5)",
         backgroundColor: "rgba(252, 195, 5, 0.3)",
       },
     ],
   };
 
-  const newDeathsLabels = history.data.map((item) => item.day);
+  const newDeathsLabels = useMemo(
+    () => history.data.map((item) => item.day),
+    [history.data]
+  );
 
   const newDeathsData = {
     labels: newDeathsLabels,
     datasets: [
       {
         label: "New deaths",
-        data: history.data.map((item) => item.newDeaths),
+        data: useMemo(
+          () => history.data.map((item) => item.newDeaths),
+          [history.data]
+        ),
         borderColor: "rgb(250, 71, 71)",
         backgroundColor: "rgba(250, 71, 71, 0.3)",
       },
     ],
   };
 
-  const dateLabel = moment(date).utc().format("YYYY-MM-DD");
+  const dateLabel = useMemo(
+    () => moment(date).utc().format("YYYY-MM-DD"),
+    [date]
+  );
   const chosenDateData = history.data.find((item) => item.day === dateLabel);
   const deathRate = [
     `Death rate: ${(
-      (chosenDateData?.totalDeaths / chosenDateData?.totalCases) *
-      100
+      (chosenDateData?.totalDeaths / chosenDateData?.totalCases) * 100 || 0
     ).toFixed(2)}%`,
   ];
 
