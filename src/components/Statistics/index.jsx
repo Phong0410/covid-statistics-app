@@ -3,6 +3,7 @@ import { Container, Stack, Paper, styled, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import AnimatedNumber from "animated-number-react";
 import styles from "./index.module.scss";
+import LoadingOverlay from "../LoadingOverlay";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -18,6 +19,7 @@ const formatValue = (value) => value.toFixed(0);
 
 const Statistic = () => {
   const data = useSelector((state) => state.statistics);
+
   return (
     <Container sx={{ padding: "24px" }}>
       <Stack spacing={2}>
@@ -103,6 +105,7 @@ const Statistic = () => {
           </Grid>
         </Item>
       </Stack>
+      <LoadingOverlay loading={data.loading} />
     </Container>
   );
 };
