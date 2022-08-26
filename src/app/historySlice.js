@@ -12,7 +12,7 @@ export const getData = createAsyncThunk("history/getData", async (country) => {
   for (const item of data.response) {
     if (item.day === currentUtcDay) continue;
     if (!uniqByDay.hasOwnProperty(item.day)) uniqByDay[item.day] = item;
-    if (item.day === furthestUtcDay) break;
+    if (item.day <= furthestUtcDay) break;
   }
 
   return Object.values(uniqByDay)
@@ -49,6 +49,6 @@ export const historySlice = createSlice({
   },
 });
 
-export const {} = historySlice.actions;
+// export const {} = historySlice.actions;
 
 export default historySlice.reducer;

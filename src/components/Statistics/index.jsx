@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, Paper, styled, Grid, Box } from "@mui/material";
+import { Container, Stack, Paper, styled, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import AnimatedNumber from "animated-number-react";
 import styles from "./index.module.scss";
@@ -20,16 +20,6 @@ const Statistic = () => {
   const data = useSelector((state) => state.statistics);
   return (
     <Container sx={{ padding: "24px" }}>
-      <Box
-        sx={{
-          textAlign: "center",
-          paddingBottom: "12px",
-          fontSize: "20px",
-          fontWeight: "500",
-        }}
-      >
-        Today
-      </Box>
       <Stack spacing={2}>
         <Item>
           <p className={styles.title}>Cases</p>
