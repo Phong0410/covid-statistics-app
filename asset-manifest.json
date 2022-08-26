@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/covid-statistics-app/static/css/main.b805f6bb.css",
-    "main.js": "/covid-statistics-app/static/js/main.cf9d57fc.js",
+    "main.css": "/covid-statistics-app/static/css/main.72030cb5.css",
+    "main.js": "/covid-statistics-app/static/js/main.f410d1bd.js",
     "static/js/787.32d0a012.chunk.js": "/covid-statistics-app/static/js/787.32d0a012.chunk.js",
     "index.html": "/covid-statistics-app/index.html",
-    "main.b805f6bb.css.map": "/covid-statistics-app/static/css/main.b805f6bb.css.map",
-    "main.cf9d57fc.js.map": "/covid-statistics-app/static/js/main.cf9d57fc.js.map",
+    "main.72030cb5.css.map": "/covid-statistics-app/static/css/main.72030cb5.css.map",
+    "main.f410d1bd.js.map": "/covid-statistics-app/static/js/main.f410d1bd.js.map",
     "787.32d0a012.chunk.js.map": "/covid-statistics-app/static/js/787.32d0a012.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b805f6bb.css",
-    "static/js/main.cf9d57fc.js"
+    "static/css/main.72030cb5.css",
+    "static/js/main.f410d1bd.js"
   ]
 }
